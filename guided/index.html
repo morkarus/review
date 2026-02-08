@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Genera una recensione personalizzata per hotel in 30 secondi. Rispondi a 5 domande e copia su Google o TripAdvisor." />
+  <meta name="theme-color" content="#0a0a0f" />
+  
+  <title>Recensione Guidata | Review Generator</title>
+  
+  <!-- Preload fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="../assets/guided.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1 data-i18n="title">Recensione guidata (30 secondi)</h1>
+      <p class="sub" data-i18n="subtitle">Rispondi a poche domande. Alla fine copi e incolli su Google o TripAdvisor.</p>
+
+      <div class="staff-chip" aria-label="Staff">
+        <b id="staff-label">Staff</b>
+        <span id="staff-value">—</span>
+      </div>
+    </header>
+
+    <!-- Question 1: Overall Experience -->
+    <section class="card" id="q-overall">
+      <h2></h2>
+      <div class="hint"></div>
+      <div class="choices"></div>
+    </section>
+
+    <!-- Question 2: Highlights -->
+    <section class="card" id="q-highlights">
+      <h2></h2>
+      <div class="hint"></div>
+      <div class="choices"></div>
+    </section>
+
+    <!-- Question 3: Staff Help -->
+    <section class="card" id="q-staffHelp">
+      <h2></h2>
+      <div class="hint"></div>
+      <div class="choices"></div>
+    </section>
+
+    <!-- Question 4: Favorite Moment -->
+    <section class="card" id="q-moment">
+      <h2></h2>
+      <div class="hint"></div>
+      <div class="choices"></div>
+    </section>
+
+    <!-- Question 5: Recommend To -->
+    <section class="card" id="q-recommendTo">
+      <h2></h2>
+      <div class="hint"></div>
+      <div class="choices"></div>
+    </section>
+
+    <!-- Notes Section -->
+    <section class="card notes">
+      <label id="notes-label" for="notes">Dettaglio personale (opzionale)</label>
+      <textarea id="notes" placeholder=""></textarea>
+      <div class="actions">
+        <button class="btn" id="btn-generate">Genera recensione</button>
+        <button class="btn secondary" id="btn-back">Indietro</button>
+      </div>
+    </section>
+
+    <!-- Result Card -->
+    <section class="card result-card" id="result-card">
+      <h2>Testo generato</h2>
+      <div class="small" id="char-count">Caratteri: 0</div>
+      <textarea class="result" id="result" readonly></textarea>
+
+      <div class="footer-actions">
+        <button class="btn secondary" id="btn-copy">Copia</button>
+        <button class="btn" id="btn-google">Copia e apri Google</button>
+        <button class="btn" id="btn-trip">Copia e apri TripAdvisor</button>
+        <button class="btn secondary" id="btn-restart">Ricomincia</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Paste Hint Overlay -->
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Paste overlay">
+    <div class="panel">
+      <h3 id="overlay-title">Ora incolla nella recensione</h3>
+      <p id="overlay-body">Quando si apre la pagina, tocca il box del testo e premi "Incolla".</p>
+      <div class="row">
+        <button class="btn secondary" id="overlay-close">OK</button>
+        <button class="btn" id="overlay-open">Apri ora</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/guided-data.js"></script>
+  <script src="../assets/guided.js"></script>
+</body>
+</html>
