@@ -1,0 +1,10 @@
+# --- BLOCCO TOTALE ---
+# Ignora TUTTI i file e cartelle nel progetto
+*
+
+# --- ECCEZIONI (Whitelist) ---
+# Non ignorare la cartella di release per GitHub
+!github_release/
+
+# Non ignorare questo file .gitignore (altrimenti non funzionerebbe)
+!.gitignore
